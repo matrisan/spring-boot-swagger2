@@ -1,13 +1,18 @@
 package com.github.springbootswagger2.pojo;
 
+import com.alibaba.fastjson.JSON;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import java.util.concurrent.TimeUnit;
+
 /**
  * <p>
- * 创建时间为 19:44-2019-02-25
+ * 创建时间为 19:42-2019-04-17
  * 项目名称 SpringBootSwagger2
  * </p>
  *
@@ -22,13 +27,21 @@ import lombok.Setter;
 @ApiModel(value = "User", description = "用户实体类")
 public class UserDO {
 
+    @NotBlank
     @ApiModelProperty(value = "用户的ID", required = true)
     private String id;
 
+    @NotBlank
+    @ApiModelProperty(value = "用户名", required = true)
     private String name;
+
+    @NotNull
+    @ApiModelProperty(value = "用户名", required = true)
+    private TimeUnit timeUnit;
 
     @Override
     public String toString() {
-        return "UserDO{" + "id='" + id + '\'' + ", name='" + name + '\'' + '}';
+        return JSON.toJSONString(this);
     }
+
 }
