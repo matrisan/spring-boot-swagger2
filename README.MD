@@ -15,13 +15,15 @@
 
 ## 2.解决的痛点
 
-### a.接口参数更改,文档更新不实时;
-### b.调用方与被调用方减少沟通成本;
-### c.代码写完即可立刻测试
+a.接口参数更改,文档更新不实时;
+
+b.调用方与被调用方减少沟通成本;
+
+c.代码写完即可立刻测试
 
 # 三.怎么做
 
-##1.加入官方依赖
+## 1.加入官方依赖
 ```
 <swagger.version>2.9.2</swagger.version>
 
@@ -37,7 +39,7 @@
     <version>${swagger.version}</version>
 </dependency>
 ```
-##2.加入spring中间件
+## 2.加入spring中间件
 
 ```
 <dependency>
@@ -60,14 +62,12 @@ http://127.0.0.1:8080/swagger-ui.html
 
 ```mermaid
 graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
+    A[模块A]-->|依赖|Framework(中间模块);
+    A[模块A]-->|调用|B[模块B];
+    B[模块B]-->|依赖|Framework(中间模块);
+    B[模块B]-->|调用|C[模块C];
+    C[模块C]-->|依赖|Framework(中间模块);
 ```
-
-
-
 
 
 
