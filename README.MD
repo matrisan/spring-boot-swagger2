@@ -51,17 +51,8 @@ http://127.0.0.1:8080/swagger-ui.html
 
 
 
-# 四.流程图
-
-```mermaid
-graph TD
-A[模块A]-->|依赖|Framework(中间模块)
-B[模块]
 
 
-
-
-```　
 # 四.流程图
 
 ```mermaid
