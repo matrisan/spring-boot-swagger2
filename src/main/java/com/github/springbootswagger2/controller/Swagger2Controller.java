@@ -44,6 +44,7 @@ public class Swagger2Controller {
         return user;
     }
 
+
     @GetMapping("user")
     @ResponseHeader(name = "head1", description = "response head conf")
     @ApiResponses({

@@ -2,6 +2,7 @@ package com.github.springbootswagger2.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -22,6 +23,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @since 0.0.1
  */
 
+@Profile({"dev", "test"})
 @Configuration
 @EnableSwagger2
 public class Swagger2Config {
@@ -29,21 +31,21 @@ public class Swagger2Config {
     @Bean
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
-            .apiInfo(apiInfo())
-            .select()
-            .apis(RequestHandlerSelectors.basePackage("com.github.springbootswagger2"))
-            .paths(PathSelectors.any())
-            .build();
+                .apiInfo(apiInfo())
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.github.springbootswagger2"))
+                .paths(PathSelectors.any())
+                .build();
     }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-            .title("Spring Boot中使用Swagger2构建RESTful APIs")
-            .description("更多Spring Boot相关文章请关注：https://github.com/shaopro?tab=repositories")
-            .termsOfServiceUrl("https://github.com/shaopro?tab=repositories")
-            .contact(new Contact("shao", "https://github.com/shaopro?tab=repositories", "shaopro@qq.com"))
-            .version("1.0")
-            .build();
+                .title("Spring Boot中使用Swagger2构建RESTful APIs")
+                .description("更多Spring Boot相关文章请关注：https://github.com/shaopro?tab=repositories")
+                .termsOfServiceUrl("https://github.com/shaopro?tab=repositories")
+                .contact(new Contact("shao", "https://github.com/shaopro?tab=repositories", "shaopro@qq.com"))
+                .version("1.0")
+                .build();
     }
 
 }

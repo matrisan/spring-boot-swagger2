@@ -27,6 +27,7 @@ import java.util.concurrent.TimeUnit;
 @ApiModel(value = "User", description = "用户实体类")
 public class UserDO {
 
+
     @NotBlank
     @ApiModelProperty(value = "用户的ID", required = true)
     private String id;
